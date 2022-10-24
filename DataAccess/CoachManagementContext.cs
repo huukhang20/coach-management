@@ -119,8 +119,6 @@ namespace CoachManagement
             {
                 entity.ToTable("Route");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.From).HasMaxLength(200);
 
                 entity.Property(e => e.To).HasMaxLength(200);
@@ -129,8 +127,6 @@ namespace CoachManagement
             modelBuilder.Entity<Ticket>(entity =>
             {
                 entity.ToTable("Ticket");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.PassengerId)
                     .HasMaxLength(20)
@@ -150,8 +146,6 @@ namespace CoachManagement
             modelBuilder.Entity<Trip>(entity =>
             {
                 entity.ToTable("Trip");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Status)
                     .HasMaxLength(20)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoachManagement;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,10 @@ namespace DataAccess.Repository
 {
     public interface ICoachRepository
     {
+        IEnumerable<Coach> GetAll();
+        Coach? GetByNumberPlate(string numberPlate);
+        void Add(Coach coach);
+        void Update(Coach coach);
+        void Remove(string numberPlate);
     }
 }

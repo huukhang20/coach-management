@@ -17,3 +17,4 @@ Make sure `CoachManagement.csproj` has the following lines:
   </None>
 </ItemGroup>
 ```
+For testing, copy `appsettings.json` to folder Test and check ItemGroup in `Test.csproj`

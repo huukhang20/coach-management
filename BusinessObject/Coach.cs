@@ -11,6 +11,17 @@ namespace CoachManagement
             Trips = new HashSet<Trip>();
         }
 
+        public Coach(string numberPlate, int seats, bool active, string? brand, string? location)
+        {
+            NumberPlate = numberPlate;
+            Seats = seats;
+            Active = active;
+            Brand = brand;
+            Location = location;
+            Drivers = new HashSet<Driver>();
+            Trips = new HashSet<Trip>();
+        }
+
         public string NumberPlate { get; set; } = null!;
         public int Seats { get; set; }
         public bool Active { get; set; }
