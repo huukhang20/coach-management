@@ -1,4 +1,4 @@
-﻿using CoachManagement;
+﻿using BusinessObject;
 
 namespace DataAccess
 {

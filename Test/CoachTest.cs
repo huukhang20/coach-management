@@ -1,4 +1,4 @@
-using CoachManagement;
+using BusinessObject;
 using DataAccess.Repository;
 using Microsoft.Data.SqlClient;
 

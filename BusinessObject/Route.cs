@@ -1,12 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CoachManagement
+namespace BusinessObject
 {
     public partial class Route
     {
         public Route()
         {
+            Trips = new HashSet<Trip>();
+        }
+
+        public Route(int id, string from, string to, int price)
+        {
+            Id = id;
+            From = from;
+            To = to;
+            Price = price;
             Trips = new HashSet<Trip>();
         }
 

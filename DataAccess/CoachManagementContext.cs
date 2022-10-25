@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using BusinessObject;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
 
-namespace CoachManagement
+namespace DataAccess
 {
     public partial class CoachManagementContext : DbContext
     {

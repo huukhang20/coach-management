@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CoachManagement
+namespace BusinessObject
 {
     public partial class Coach
     {
