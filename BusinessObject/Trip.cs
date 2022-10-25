@@ -8,27 +8,29 @@ namespace BusinessObject
         public Trip()
         {
             Tickets = new HashSet<Ticket>();
-            NumberPlates = new HashSet<Coach>();
         }
 
-        public Trip(long id, DateTime departTime, string status, int? routeId)
+        public Trip(long id, string from, string to, DateTime departTime, int status, decimal price, string? numberPlate)
         {
             Id = id;
+            From = from;
+            To = to;
             DepartTime = departTime;
             Status = status;
-            RouteId = routeId;
+            Price = price;
+            NumberPlate = numberPlate;
             Tickets = new HashSet<Ticket>();
-            NumberPlates = new HashSet<Coach>();
         }
 
         public long Id { get; set; }
+        public string From { get; set; } = null!;
+        public string To { get; set; } = null!;
         public DateTime DepartTime { get; set; }
-        public string Status { get; set; } = null!;
-        public int? RouteId { get; set; }
+        public int Status { get; set; }
+        public decimal Price { get; set; }
+        public string? NumberPlate { get; set; }
 
-        public virtual Route? Route { get; set; }
+        public virtual Coach? NumberPlateNavigation { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
-
-        public virtual ICollection<Coach> NumberPlates { get; set; }
     }
 }

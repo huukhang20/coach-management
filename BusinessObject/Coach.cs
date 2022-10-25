@@ -29,7 +29,6 @@ namespace BusinessObject
         public string? Location { get; set; }
 
         public virtual ICollection<Driver> Drivers { get; set; }
-
         public virtual ICollection<Trip> Trips { get; set; }
     }
 }

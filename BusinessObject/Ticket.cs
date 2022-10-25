@@ -9,20 +9,22 @@ namespace BusinessObject
         {
         }
 
-        public Ticket(long id, DateTime bookTime, string? passengerId, long? tripId)
+        public Ticket(long id, DateTime bookTime, int seatNumber, string passengerId, long tripId)
         {
             Id = id;
             BookTime = bookTime;
+            SeatNumber = seatNumber;
             PassengerId = passengerId;
             TripId = tripId;
         }
 
         public long Id { get; set; }
         public DateTime BookTime { get; set; }
-        public string? PassengerId { get; set; }
-        public long? TripId { get; set; }
+        public int SeatNumber { get; set; }
+        public string PassengerId { get; set; } = null!;
+        public long TripId { get; set; }
 
-        public virtual Passenger? Passenger { get; set; }
-        public virtual Trip? Trip { get; set; }
+        public virtual Passenger Passenger { get; set; } = null!;
+        public virtual Trip Trip { get; set; } = null!;
     }
 }

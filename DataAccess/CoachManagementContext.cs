@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using BusinessObject;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using BusinessObject;
 using Microsoft.Extensions.Configuration;
 
 namespace DataAccess
@@ -21,7 +21,6 @@ namespace DataAccess
         public virtual DbSet<Coach> Coaches { get; set; } = null!;
         public virtual DbSet<Driver> Drivers { get; set; } = null!;
         public virtual DbSet<Passenger> Passengers { get; set; } = null!;
-        public virtual DbSet<Route> Routes { get; set; } = null!;
         public virtual DbSet<Ticket> Tickets { get; set; } = null!;
         public virtual DbSet<Trip> Trips { get; set; } = null!;
 
@@ -58,21 +57,6 @@ namespace DataAccess
                 entity.Property(e => e.Brand).HasMaxLength(100);
 
                 entity.Property(e => e.Location).HasMaxLength(200);
-
-                entity.HasMany(d => d.Trips)
-                    .WithMany(p => p.NumberPlates)
-                    .UsingEntity<Dictionary<string, object>>(
-                        "CoachTrip",
-                        l => l.HasOne<Trip>().WithMany().HasForeignKey("TripId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_CoachTrip_Trip"),
-                        r => r.HasOne<Coach>().WithMany().HasForeignKey("NumberPlate").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_CoachTrip_Coach"),
-                        j =>
-                        {
-                            j.HasKey("NumberPlate", "TripId");
-
-                            j.ToTable("CoachTrip");
-
-                            j.IndexerProperty<string>("NumberPlate").HasMaxLength(50).IsUnicode(false);
-                        });
             });
 
             modelBuilder.Entity<Driver>(entity =>
@@ -116,15 +100,6 @@ namespace DataAccess
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Route>(entity =>
-            {
-                entity.ToTable("Route");
-
-                entity.Property(e => e.From).HasMaxLength(200);
-
-                entity.Property(e => e.To).HasMaxLength(200);
-            });
-
             modelBuilder.Entity<Ticket>(entity =>
             {
                 entity.ToTable("Ticket");
@@ -136,11 +111,13 @@ namespace DataAccess
                 entity.HasOne(d => d.Passenger)
                     .WithMany(p => p.Tickets)
                     .HasForeignKey(d => d.PassengerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Ticket_Passenger");
 
                 entity.HasOne(d => d.Trip)
                     .WithMany(p => p.Tickets)
                     .HasForeignKey(d => d.TripId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Ticket_Trip");
             });
 
@@ -148,14 +125,20 @@ namespace DataAccess
             {
                 entity.ToTable("Trip");
 
-                entity.Property(e => e.Status)
-                    .HasMaxLength(20)
+                entity.Property(e => e.From).HasMaxLength(50);
+
+                entity.Property(e => e.NumberPlate)
+                    .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Route)
+                entity.Property(e => e.Price).HasColumnType("money");
+
+                entity.Property(e => e.To).HasMaxLength(50);
+
+                entity.HasOne(d => d.NumberPlateNavigation)
                     .WithMany(p => p.Trips)
-                    .HasForeignKey(d => d.RouteId)
-                    .HasConstraintName("FK_Trip_Route");
+                    .HasForeignKey(d => d.NumberPlate)
+                    .HasConstraintName("FK_Trip_Coach");
             });
 
             OnModelCreatingPartial(modelBuilder);

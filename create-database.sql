@@ -1,11 +1,11 @@
 USE [master]
 GO
-/****** Object:  Database [CoachManagement]    Script Date: 10/24/2022 11:02:05 PM ******/
+/****** Object:  Database [CoachManagement]    Script Date: 10/25/2022 6:18:35 PM ******/
 CREATE DATABASE [CoachManagement]
 GO
 USE [CoachManagement]
 GO
-/****** Object:  Table [dbo].[Coach]    Script Date: 10/24/2022 11:02:06 PM ******/
+/****** Object:  Table [dbo].[Coach]    Script Date: 10/25/2022 6:18:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -22,22 +22,7 @@ CREATE TABLE [dbo].[Coach](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CoachTrip]    Script Date: 10/24/2022 11:02:06 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[CoachTrip](
-	[NumberPlate] [varchar](50) NOT NULL,
-	[TripId] [bigint] NOT NULL,
- CONSTRAINT [PK_CoachTrip] PRIMARY KEY CLUSTERED 
-(
-	[NumberPlate] ASC,
-	[TripId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Driver]    Script Date: 10/24/2022 11:02:06 PM ******/
+/****** Object:  Table [dbo].[Driver]    Script Date: 10/25/2022 6:18:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -54,7 +39,7 @@ CREATE TABLE [dbo].[Driver](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Passenger]    Script Date: 10/24/2022 11:02:06 PM ******/
+/****** Object:  Table [dbo].[Passenger]    Script Date: 10/25/2022 6:18:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -69,23 +54,7 @@ CREATE TABLE [dbo].[Passenger](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Route]    Script Date: 10/24/2022 11:02:06 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Route](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[From] [nvarchar](200) NOT NULL,
-	[To] [nvarchar](200) NOT NULL,
-	[Price] [int] NOT NULL,
- CONSTRAINT [PK_Route] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Ticket]    Script Date: 10/24/2022 11:02:06 PM ******/
+/****** Object:  Table [dbo].[Ticket]    Script Date: 10/25/2022 6:18:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -93,39 +62,33 @@ GO
 CREATE TABLE [dbo].[Ticket](
 	[Id] [bigint] IDENTITY(1,1) NOT NULL,
 	[BookTime] [datetime2](7) NOT NULL,
-	[PassengerId] [varchar](20) NULL,
-	[TripId] [bigint] NULL,
+	[SeatNumber] [int] NOT NULL,
+	[PassengerId] [varchar](20) NOT NULL,
+	[TripId] [bigint] NOT NULL,
  CONSTRAINT [PK_Ticket] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Trip]    Script Date: 10/24/2022 11:02:06 PM ******/
+/****** Object:  Table [dbo].[Trip]    Script Date: 10/25/2022 6:18:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Trip](
 	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[From] [nvarchar](50) NOT NULL,
+	[To] [nvarchar](50) NOT NULL,
 	[DepartTime] [datetime2](7) NOT NULL,
-	[Status] [varchar](20) NOT NULL,
-	[RouteId] [int] NULL,
+	[Status] [int] NOT NULL,
+	[Price] [money] NOT NULL,
+	[NumberPlate] [varchar](50) NULL,
  CONSTRAINT [PK_Trip] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
-GO
-ALTER TABLE [dbo].[CoachTrip]  WITH CHECK ADD  CONSTRAINT [FK_CoachTrip_Coach] FOREIGN KEY([NumberPlate])
-REFERENCES [dbo].[Coach] ([NumberPlate])
-GO
-ALTER TABLE [dbo].[CoachTrip] CHECK CONSTRAINT [FK_CoachTrip_Coach]
-GO
-ALTER TABLE [dbo].[CoachTrip]  WITH CHECK ADD  CONSTRAINT [FK_CoachTrip_Trip] FOREIGN KEY([TripId])
-REFERENCES [dbo].[Trip] ([Id])
-GO
-ALTER TABLE [dbo].[CoachTrip] CHECK CONSTRAINT [FK_CoachTrip_Trip]
 GO
 ALTER TABLE [dbo].[Driver]  WITH CHECK ADD  CONSTRAINT [FK_Driver_Coach] FOREIGN KEY([NumberPlate])
 REFERENCES [dbo].[Coach] ([NumberPlate])
@@ -142,10 +105,10 @@ REFERENCES [dbo].[Trip] ([Id])
 GO
 ALTER TABLE [dbo].[Ticket] CHECK CONSTRAINT [FK_Ticket_Trip]
 GO
-ALTER TABLE [dbo].[Trip]  WITH CHECK ADD  CONSTRAINT [FK_Trip_Route] FOREIGN KEY([RouteId])
-REFERENCES [dbo].[Route] ([Id])
+ALTER TABLE [dbo].[Trip]  WITH CHECK ADD  CONSTRAINT [FK_Trip_Coach] FOREIGN KEY([NumberPlate])
+REFERENCES [dbo].[Coach] ([NumberPlate])
 GO
-ALTER TABLE [dbo].[Trip] CHECK CONSTRAINT [FK_Trip_Route]
+ALTER TABLE [dbo].[Trip] CHECK CONSTRAINT [FK_Trip_Coach]
 GO
 USE [master]
 GO
