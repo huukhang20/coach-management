@@ -22,9 +22,10 @@ namespace CoachManagement
             InitializeComponent();
         }
 
-        private void LoadList(IEnumerable<Driver>? list = null)
+        private void LoadList()
         {
-            list ??= driverRepository.GetAll();
+            IEnumerable<Driver> rawList = driverRepository.GetAll();
+            List<Driver> list = FilterDrivers(rawList).ToList();
 
             txtId.DataBindings.Clear();
             txtName.DataBindings.Clear();
@@ -53,6 +54,12 @@ namespace CoachManagement
             }
         }
 
+        private IEnumerable<Driver> FilterDrivers(IEnumerable<Driver> list)
+        {
+            return list.Where(x => x.Name.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase)
+                && (!cbFilter.Text.Any() || cbFilter.Text.Equals(x.NumberPlate)));
+        }
+
         private void ClearText()
         {
             txtId.Text = "";
@@ -71,7 +78,7 @@ namespace CoachManagement
                     txtName.Text,
                     txtPosition.Text,
                     txtBirthday.Value,
-                    cbnp.Text.Any() ? cbnp.Text : null
+                    cbnp.Text
                 );
             }
             catch (Exception ex)
@@ -88,6 +95,7 @@ namespace CoachManagement
                 btnNew.Enabled = false;
                 btnDelete.Enabled = false;
             }
+            else dgvDrivers.CellDoubleClick += new DataGridViewCellEventHandler(dgvDrivers_CellDoubleClick);
 
             LoadList();
 
@@ -101,22 +109,53 @@ namespace CoachManagement
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-
+            frmDriverDetails frmDriverDetails = new frmDriverDetails(null);
+            if (frmDriverDetails.ShowDialog() == DialogResult.OK)
+                LoadList();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Driver? driver = GetSelected();
+                if (driver != null)
+                {
+                    DialogResult res = MessageBox.Show(
+                        "Delete driver with id" + driver.Id,
+                        "Delete",
+                        MessageBoxButtons.OKCancel
+                    );
+                    if (res == DialogResult.OK)
+                    {
+                        driverRepository.Remove(driver.Id);
+                        LoadList();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            LoadList();
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
+            LoadList();
+        }
 
+        private void dgvDrivers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmDriverDetails frmDriverDetails = new frmDriverDetails(GetSelected());
+            if (frmDriverDetails.ShowDialog() == DialogResult.OK)
+            {
+                LoadList();
+            }
         }
     }
 }

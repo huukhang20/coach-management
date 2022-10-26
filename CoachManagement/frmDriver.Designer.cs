@@ -53,7 +53,7 @@
             this.btnFilter.Location = new System.Drawing.Point(586, 149);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(75, 23);
-            this.btnFilter.TabIndex = 19;
+            this.btnFilter.TabIndex = 11;
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
@@ -63,7 +63,7 @@
             this.btnSearch.Location = new System.Drawing.Point(144, 149);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 20;
+            this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -74,16 +74,18 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceholderText = "Name";
             this.txtSearch.Size = new System.Drawing.Size(100, 23);
-            this.txtSearch.TabIndex = 18;
+            this.txtSearch.TabIndex = 8;
             // 
             // dgvDrivers
             // 
             this.dgvDrivers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDrivers.Location = new System.Drawing.Point(12, 178);
             this.dgvDrivers.Name = "dgvDrivers";
+            this.dgvDrivers.ReadOnly = true;
             this.dgvDrivers.RowTemplate.Height = 25;
+            this.dgvDrivers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDrivers.Size = new System.Drawing.Size(669, 198);
-            this.dgvDrivers.TabIndex = 17;
+            this.dgvDrivers.TabIndex = 12;
             // 
             // cbFilter
             // 
@@ -91,7 +93,7 @@
             this.cbFilter.Location = new System.Drawing.Point(459, 149);
             this.cbFilter.Name = "cbFilter";
             this.cbFilter.Size = new System.Drawing.Size(121, 23);
-            this.cbFilter.TabIndex = 15;
+            this.cbFilter.TabIndex = 10;
             // 
             // cbnp
             // 
@@ -99,28 +101,28 @@
             this.cbnp.Location = new System.Drawing.Point(506, 41);
             this.cbnp.Name = "cbnp";
             this.cbnp.Size = new System.Drawing.Size(121, 23);
-            this.cbnp.TabIndex = 16;
+            this.cbnp.TabIndex = 5;
             // 
             // txtPosition
             // 
             this.txtPosition.Location = new System.Drawing.Point(506, 12);
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.Size = new System.Drawing.Size(121, 23);
-            this.txtPosition.TabIndex = 11;
+            this.txtPosition.TabIndex = 4;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(153, 41);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(121, 23);
-            this.txtName.TabIndex = 13;
+            this.txtName.TabIndex = 2;
             // 
             // txtId
             // 
             this.txtId.Location = new System.Drawing.Point(153, 12);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(121, 23);
-            this.txtId.TabIndex = 14;
+            this.txtId.TabIndex = 1;
             // 
             // label5
             // 
@@ -173,14 +175,14 @@
             this.txtBirthday.Location = new System.Drawing.Point(153, 70);
             this.txtBirthday.Name = "txtBirthday";
             this.txtBirthday.Size = new System.Drawing.Size(121, 23);
-            this.txtBirthday.TabIndex = 21;
+            this.txtBirthday.TabIndex = 3;
             // 
             // btnNew
             // 
             this.btnNew.Location = new System.Drawing.Point(240, 108);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
-            this.btnNew.TabIndex = 22;
+            this.btnNew.TabIndex = 6;
             this.btnNew.Text = "New";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -190,7 +192,7 @@
             this.btnDelete.Location = new System.Drawing.Point(377, 108);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 22;
+            this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
