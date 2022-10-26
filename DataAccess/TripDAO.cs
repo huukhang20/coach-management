@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,14 +28,14 @@ namespace DataAccess
         public IEnumerable<Trip> GetAll()
         {
             using var context = new CoachManagementContext();
-            var list = context.Trips.ToList();
+            var list = context.Trips.Include(t => t.NumberPlateNavigation).ToList();
             return list;
         }
 
         public Trip? GetById(long id)
         {
             using var context = new CoachManagementContext();
-            var trip = context.Trips.SingleOrDefault(c => c.Id == id);
+            var trip = context.Trips.Include(t => t.NumberPlateNavigation).SingleOrDefault(c => c.Id == id);
             return trip;
         }
 

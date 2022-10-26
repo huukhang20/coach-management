@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,14 +28,14 @@ namespace DataAccess
         public IEnumerable<Driver> GetAll()
         {
             using var context = new CoachManagementContext();
-            var list = context.Drivers.ToList();
+            var list = context.Drivers.Include(d => d.NumberPlateNavigation).ToList();
             return list;
         }
 
         public Driver? GetById(string id)
         {
             using var context = new CoachManagementContext();
-            var driver = context.Drivers.SingleOrDefault(c => c.Id.Equals(id));
+            var driver = context.Drivers.Include(d => d.NumberPlateNavigation).SingleOrDefault(c => c.Id.Equals(id));
             return driver;
         }
 
