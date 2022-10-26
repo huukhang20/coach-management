@@ -23,8 +23,8 @@ namespace DataAccess
                 _isAdmin = true;
                 return true;
             }
-            else if (memUsername.Equals(memUsername, StringComparison.OrdinalIgnoreCase)
-                && memPassword.Equals(memPassword))
+            else if (memUsername.Equals(username, StringComparison.OrdinalIgnoreCase)
+                && memPassword.Equals(password))
             {
                 _isAdmin = false;
                 return true;
