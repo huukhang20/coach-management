@@ -23,5 +23,12 @@ namespace CoachManagement
             frmDriver.MdiParent = this;
             frmDriver.Show();
         }
+
+        private void ticketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTicket frmTicket = new frmTicket(null);
+            frmTicket.MdiParent = this;
+            frmTicket.Show();
+        }
     }
 }

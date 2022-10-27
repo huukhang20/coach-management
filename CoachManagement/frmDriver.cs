@@ -57,7 +57,8 @@ namespace CoachManagement
         private IEnumerable<Driver> FilterDrivers(IEnumerable<Driver> list)
         {
             return list.Where(x => x.Name.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase)
-                && (!cbFilter.Text.Any() || cbFilter.Text.Equals(x.NumberPlate)));
+                && (!cbFilter.Text.Any() || cbFilter.Text.Equals(x.NumberPlate)))
+                .OrderByDescending(d => d.Id);
         }
 
         private void ClearText()

@@ -67,6 +67,7 @@
             this.ticketToolStripMenuItem.Name = "ticketToolStripMenuItem";
             this.ticketToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.ticketToolStripMenuItem.Text = "Ticket";
+            this.ticketToolStripMenuItem.Click += new System.EventHandler(this.ticketToolStripMenuItem_Click);
             // 
             // tripToolStripMenuItem
             // 

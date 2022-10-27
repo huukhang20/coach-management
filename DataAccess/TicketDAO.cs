@@ -50,6 +50,9 @@ namespace DataAccess
             Ticket? oldTicket = GetById(ticket.Id);
             if (oldTicket == null)
             {
+                if (TripDAO.Instance.GetById(ticket.TripId)!.Status != 0)
+                    throw new Exception("The trip has departed or been canceled");
+
                 using var context = new CoachManagementContext();
                 context.Tickets.Add(ticket);
                 context.SaveChanges();
