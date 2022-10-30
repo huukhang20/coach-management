@@ -290,6 +290,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.checkedListBoxSeats);
             this.Name = "frmTicketAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Tickets";
             this.ResumeLayout(false);
             this.PerformLayout();

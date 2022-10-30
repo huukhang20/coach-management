@@ -10,9 +10,8 @@ namespace BusinessObject
             Tickets = new HashSet<Ticket>();
         }
 
-        public Trip(long id, string from, string to, DateTime departTime, int status, decimal price, string? numberPlate)
+        public Trip(string from, string to, DateTime departTime, int status, decimal price, string? numberPlate)
         {
-            Id = id;
             From = from;
             To = to;
             DepartTime = departTime;

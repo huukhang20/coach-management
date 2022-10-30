@@ -165,6 +165,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmDriverDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Driver Details";
             this.Load += new System.EventHandler(this.frmDriverDetails_Load);
             this.ResumeLayout(false);
