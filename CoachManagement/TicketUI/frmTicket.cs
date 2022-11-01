@@ -124,7 +124,7 @@ namespace CoachManagement
                 if (driver != null)
                 {
                     DialogResult res = MessageBox.Show(
-                        "Delete ticket with id" + driver.Id,
+                        "Delete ticket with id " + driver.Id,
                         "Delete",
                         MessageBoxButtons.OKCancel
                     );

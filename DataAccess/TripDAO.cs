@@ -44,6 +44,8 @@ namespace DataAccess
             Trip? oldTrip = GetById(trip.Id);
             if (oldTrip == null)
             {
+                if (!(CoachDAO.Instance.GetByNumberPlate(trip.NumberPlate)?.Active ?? true))
+                    throw new Exception("The coach is inactive");
                 using var context = new CoachManagementContext();
                 context.Trips.Add(trip);
                 context.SaveChanges();
@@ -56,6 +58,8 @@ namespace DataAccess
             Trip? oldTrip = GetById(trip.Id);
             if (oldTrip != null)
             {
+                if (!(CoachDAO.Instance.GetByNumberPlate(trip.NumberPlate)?.Active ?? true))
+                    throw new Exception("The coach is inactive");
                 using var context = new CoachManagementContext();
                 context.Trips.Update(trip);
                 context.SaveChanges();

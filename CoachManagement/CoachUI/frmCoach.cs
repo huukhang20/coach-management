@@ -41,7 +41,8 @@ namespace CoachManagement
                 txtLocation.DataBindings.Add("Text", list, "Location");
 
                 dgvCoachs.DataSource = list;
-                dgvCoachs.Columns[4].Visible = false;
+                dgvCoachs.Columns[5].Visible = false;
+                dgvCoachs.Columns[6].Visible = false;
 
                 if (Login.IsAdmin)
                 {
@@ -130,7 +131,7 @@ namespace CoachManagement
                 if (coach != null)
                 {
                     DialogResult res = MessageBox.Show(
-                        "Delete driver with number plate" + coach.NumberPlate,
+                        "Delete driver with number plate " + coach.NumberPlate,
                         "Delete",
                         MessageBoxButtons.OKCancel
                     );

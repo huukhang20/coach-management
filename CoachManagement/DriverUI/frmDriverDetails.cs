@@ -34,13 +34,13 @@ namespace CoachManagement
                 cbnp.Text = driver.NumberPlate;
 
                 txtId.Enabled = false;
-
-                ICoachRepository coachRepository = new CoachRepository();
-                var numberPlates = coachRepository.GetAll()
-                    .Select(c => c.NumberPlate)
-                    .ToArray();
-                cbnp.Items.AddRange(numberPlates);
             }
+
+            ICoachRepository coachRepository = new CoachRepository();
+            var numberPlates = coachRepository.GetAll()
+                .Select(c => c.NumberPlate)
+                .ToArray();
+            cbnp.Items.AddRange(numberPlates);
         }
 
         private void btnSave_Click(object sender, EventArgs e)

@@ -47,6 +47,8 @@ namespace CoachManagement.CoachUI
 
         private void frmCoachAdd_Load(object sender, EventArgs e)
         {
+            txtLocation.Items.AddRange(City.Get());
+
             if (coach != null)
             {
                 txtNumberPlate.Text = coach.NumberPlate;

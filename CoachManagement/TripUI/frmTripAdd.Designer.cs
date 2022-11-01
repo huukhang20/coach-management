@@ -34,27 +34,26 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtFrom = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
-            this.txtTo = new System.Windows.Forms.TextBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtNumberPlate = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTripId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtFrom = new System.Windows.Forms.ComboBox();
+            this.txtTo = new System.Windows.Forms.ComboBox();
+            this.txtNumberPlate = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtDepart
             // 
             this.txtDepart.CustomFormat = "MM/dd/yyyy HH:mm:ss";
-            this.txtDepart.Enabled = false;
             this.txtDepart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtDepart.Location = new System.Drawing.Point(363, 12);
             this.txtDepart.Name = "txtDepart";
             this.txtDepart.Size = new System.Drawing.Size(148, 23);
-            this.txtDepart.TabIndex = 40;
+            this.txtDepart.TabIndex = 5;
             // 
             // label7
             // 
@@ -101,29 +100,16 @@
             this.label9.TabIndex = 31;
             this.label9.Text = "Status";
             // 
-            // txtFrom
-            // 
-            this.txtFrom.Location = new System.Drawing.Point(125, 41);
-            this.txtFrom.Name = "txtFrom";
-            this.txtFrom.Size = new System.Drawing.Size(121, 23);
-            this.txtFrom.TabIndex = 41;
-            // 
             // txtPrice
             // 
             this.txtPrice.Location = new System.Drawing.Point(363, 41);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(121, 23);
-            this.txtPrice.TabIndex = 42;
-            // 
-            // txtTo
-            // 
-            this.txtTo.Location = new System.Drawing.Point(125, 70);
-            this.txtTo.Name = "txtTo";
-            this.txtTo.Size = new System.Drawing.Size(121, 23);
-            this.txtTo.TabIndex = 43;
+            this.txtPrice.TabIndex = 6;
             // 
             // cbStatus
             // 
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
             "NotDepart",
@@ -133,7 +119,7 @@
             this.cbStatus.Location = new System.Drawing.Point(363, 70);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(121, 23);
-            this.cbStatus.TabIndex = 44;
+            this.cbStatus.TabIndex = 7;
             // 
             // btnCancel
             // 
@@ -156,13 +142,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtNumberPlate
-            // 
-            this.txtNumberPlate.Location = new System.Drawing.Point(125, 99);
-            this.txtNumberPlate.Name = "txtNumberPlate";
-            this.txtNumberPlate.Size = new System.Drawing.Size(121, 23);
-            this.txtNumberPlate.TabIndex = 48;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -178,7 +157,7 @@
             this.txtTripId.Name = "txtTripId";
             this.txtTripId.ReadOnly = true;
             this.txtTripId.Size = new System.Drawing.Size(121, 23);
-            this.txtTripId.TabIndex = 50;
+            this.txtTripId.TabIndex = 1;
             // 
             // label4
             // 
@@ -189,21 +168,47 @@
             this.label4.TabIndex = 49;
             this.label4.Text = "Trip ID";
             // 
+            // txtFrom
+            // 
+            this.txtFrom.FormattingEnabled = true;
+            this.txtFrom.Location = new System.Drawing.Point(125, 41);
+            this.txtFrom.Name = "txtFrom";
+            this.txtFrom.Size = new System.Drawing.Size(121, 23);
+            this.txtFrom.TabIndex = 2;
+            // 
+            // txtTo
+            // 
+            this.txtTo.FormattingEnabled = true;
+            this.txtTo.Location = new System.Drawing.Point(125, 70);
+            this.txtTo.Name = "txtTo";
+            this.txtTo.Size = new System.Drawing.Size(121, 23);
+            this.txtTo.TabIndex = 3;
+            // 
+            // txtNumberPlate
+            // 
+            this.txtNumberPlate.FormattingEnabled = true;
+            this.txtNumberPlate.Location = new System.Drawing.Point(125, 99);
+            this.txtNumberPlate.Name = "txtNumberPlate";
+            this.txtNumberPlate.Size = new System.Drawing.Size(121, 23);
+            this.txtNumberPlate.TabIndex = 4;
+            // 
             // frmTripAdd
             // 
+            this.AcceptButton = this.btnCancel;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(540, 182);
             this.Controls.Add(this.txtTripId);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtNumberPlate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.cbStatus);
+            this.Controls.Add(this.txtNumberPlate);
             this.Controls.Add(this.txtTo);
-            this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.txtFrom);
+            this.Controls.Add(this.cbStatus);
+            this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.txtDepart);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -226,15 +231,15 @@
         private Label label3;
         private Label label1;
         private Label label9;
-        private TextBox txtFrom;
         private TextBox txtPrice;
-        private TextBox txtTo;
         private ComboBox cbStatus;
         private Button btnCancel;
         private Button btnSave;
-        private TextBox txtNumberPlate;
         private Label label2;
         private TextBox txtTripId;
         private Label label4;
+        private ComboBox txtFrom;
+        private ComboBox txtTo;
+        private ComboBox txtNumberPlate;
     }
 }

@@ -39,10 +39,11 @@ namespace CoachManagement.TripUI
                         status = 2;
                         break;
                     case "Canceled":
-                        status=3;
+                        status = 3;
                         break;
                 }
                 Trip trip = new Trip(
+                    this.trip?.Id ?? 0,
                     txtFrom.Text,
                     txtTo.Text,
                     txtDepart.Value,
@@ -63,6 +64,18 @@ namespace CoachManagement.TripUI
 
         private void frmTripAdd_Load(object sender, EventArgs e)
         {
+            var cities = City.Get();
+            txtFrom.Items.AddRange(cities);
+            txtTo.Items.AddRange(cities);
+
+            ICoachRepository coachRepository = new CoachRepository();
+            var numberPlates = coachRepository.GetAll()
+                .Select(c => c.NumberPlate)
+                .ToArray();
+            txtNumberPlate.Items.AddRange(numberPlates);
+
+            cbStatus.SelectedIndex = 0;
+
             if (trip != null)
             {
                 String status = "";

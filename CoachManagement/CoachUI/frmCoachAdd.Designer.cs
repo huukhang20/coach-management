@@ -37,7 +37,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lbSeat = new System.Windows.Forms.Label();
             this.lbNumberPlate = new System.Windows.Forms.Label();
-            this.txtLocation = new System.Windows.Forms.TextBox();
+            this.txtLocation = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -120,15 +120,18 @@
             // 
             // txtLocation
             // 
+            this.txtLocation.FormattingEnabled = true;
             this.txtLocation.Location = new System.Drawing.Point(331, 41);
             this.txtLocation.Name = "txtLocation";
-            this.txtLocation.Size = new System.Drawing.Size(121, 23);
-            this.txtLocation.TabIndex = 34;
+            this.txtLocation.Size = new System.Drawing.Size(150, 23);
+            this.txtLocation.TabIndex = 26;
             // 
             // frmCoachAdd
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(506, 154);
             this.Controls.Add(this.txtLocation);
             this.Controls.Add(this.btnCancel);
@@ -160,6 +163,6 @@
         private Label label4;
         private Label lbSeat;
         private Label lbNumberPlate;
-        private TextBox txtLocation;
+        private ComboBox txtLocation;
     }
 }

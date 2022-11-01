@@ -34,7 +34,7 @@ namespace CoachManagement.TripUI
                 txtDepartTime.DataBindings.Clear();
                 txtStatus.DataBindings.Clear();
                 txtPrice.DataBindings.Clear();
-                txtNumberPlate.DataBindings.Clear();    
+                txtNumberPlate.DataBindings.Clear();
 
                 txtId.DataBindings.Add("Text", list, "Id");
                 txtFrom.DataBindings.Add("Text", list, "From");
@@ -69,8 +69,8 @@ namespace CoachManagement.TripUI
         }
         private IEnumerable<Trip> FilterTrips(IEnumerable<Trip> list)
         {
-            return list.Where(x => x.From.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) || x.To.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase))
-                .OrderBy(d => d.Id);
+            return list.Where(x => x.From.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase)
+                || x.To.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase));
         }
 
         private void ClearText()
@@ -89,6 +89,7 @@ namespace CoachManagement.TripUI
             try
             {
                 return new Trip(
+                    long.Parse(txtId.Text),
                     txtFrom.Text,
                     txtTo.Text,
                     txtDepartTime.Value,
@@ -103,7 +104,7 @@ namespace CoachManagement.TripUI
                 return null;
             }
         }
-        
+
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -124,7 +125,7 @@ namespace CoachManagement.TripUI
 
         private void dgvTrip_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
         {
-            frmTripAdd frmTripAdd = new frmTripAdd(null);
+            frmTripAdd frmTripAdd = new frmTripAdd(GetSelected());
             frmTripAdd.Text = "Add New Trip";
             if (frmTripAdd.ShowDialog() == DialogResult.OK)
                 LoadList();
@@ -138,7 +139,7 @@ namespace CoachManagement.TripUI
                 if (trip != null)
                 {
                     DialogResult res = MessageBox.Show(
-                        "Delete trip with id" + trip.Id,
+                        "Delete trip with id " + trip.Id,
                         "Delete",
                         MessageBoxButtons.OKCancel
                     );
