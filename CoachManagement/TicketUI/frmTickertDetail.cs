@@ -44,6 +44,7 @@ namespace CoachManagement.TicketUI
                 Trip? trip = tripRepository.GetById(ticket.TripId);
 
                 txtPassengerName.Text = passenger.Name;
+                txtTicketID.Text = ticket.Id.ToString();
                 txtFrom.Text = trip.From;
                 txtTo.Text = trip.To;
                 txtSeatNumber.Text = ticket.SeatNumber.ToString();

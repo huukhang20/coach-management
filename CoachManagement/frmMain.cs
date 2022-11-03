@@ -130,6 +130,9 @@ namespace CoachManagement
             btnCloseChildForm.Visible = false;
         }
 
-      
+        private void panelDesktopPane_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

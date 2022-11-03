@@ -63,6 +63,16 @@ namespace CoachManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bus {
+            get {
+                object obj = ResourceManager.GetObject("bus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cross_out__2_ {
             get {
                 object obj = ResourceManager.GetObject("cross-out (2)", resourceCulture);
@@ -76,6 +86,16 @@ namespace CoachManagement.Properties {
         internal static System.Drawing.Bitmap printer {
             get {
                 object obj = ResourceManager.GetObject("printer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wagon {
+            get {
+                object obj = ResourceManager.GetObject("wagon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
