@@ -16,17 +16,31 @@ namespace CoachManagement.TripUI
     public partial class frmTrip : Form
     {
         private ITripRepository tripRepository = new TripRepository();
+
         public frmTrip()
         {
             InitializeComponent();
         }
+
         private void LoadList()
         {
             try
             {
 
                 IEnumerable<Trip> rawlist = tripRepository.GetAll();
-                List<Trip> list = FilterTrips(rawlist).ToList();
+                //List<Trip> list = FilterTrips(rawlist).ToList();
+                var list = FilterTrips(rawlist)
+                    .Select(t => new
+                    {
+                        t.Id,
+                        t.From,
+                        t.To,
+                        t.DepartTime,
+                        Status = (TripStatus)t.Status,
+                        t.Price,
+                        t.NumberPlate
+                    })
+                    .ToList();
 
                 txtId.DataBindings.Clear();
                 txtFrom.DataBindings.Clear();
@@ -45,8 +59,8 @@ namespace CoachManagement.TripUI
                 txtNumberPlate.DataBindings.Add("Text", list, "NumberPlate");
 
                 dgvTrip.DataSource = list;
-                dgvTrip.Columns[7].Visible = false;
-                dgvTrip.Columns[8].Visible = false;
+                //dgvTrip.Columns[7].Visible = false;
+                //dgvTrip.Columns[8].Visible = false;
                 if (Login.IsAdmin)
                 {
                     if (list.Any())
@@ -93,7 +107,7 @@ namespace CoachManagement.TripUI
                     txtFrom.Text,
                     txtTo.Text,
                     txtDepartTime.Value,
-                    int.Parse(txtStatus.Text),
+                    (int)Enum.Parse(typeof(TripStatus), txtStatus.Text),
                     decimal.Parse(txtPrice.Text),
                     txtNumberPlate.Text
                 );

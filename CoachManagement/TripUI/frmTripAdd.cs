@@ -49,7 +49,7 @@ namespace CoachManagement.TripUI
                     txtDepart.Value,
                     status,
                     decimal.Parse(txtPrice.Text),
-                    txtNumberPlate.Text
+                    txtNumberPlate.Text.Any() ? txtNumberPlate.Text : null
                 );
                 if (this.trip == null)
                     tripRepository.Add(trip);

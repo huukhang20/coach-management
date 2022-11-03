@@ -140,6 +140,7 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(60, 182);
             this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PlaceholderText = "Number Plate";
             this.txtSearch.Size = new System.Drawing.Size(100, 23);
             this.txtSearch.TabIndex = 22;
             // 

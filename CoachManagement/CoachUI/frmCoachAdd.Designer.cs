@@ -139,8 +139,9 @@
             // 
             // cbStatus
             // 
-            this.cbStatus.AutoCheck = false;
             this.cbStatus.AutoSize = true;
+            this.cbStatus.Checked = true;
+            this.cbStatus.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbStatus.Location = new System.Drawing.Point(104, 74);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(59, 19);

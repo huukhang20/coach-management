@@ -50,7 +50,7 @@
             // 
             this.txtDepart.CustomFormat = "MM/dd/yyyy HH:mm:ss";
             this.txtDepart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtDepart.Location = new System.Drawing.Point(363, 12);
+            this.txtDepart.Location = new System.Drawing.Point(405, 12);
             this.txtDepart.Name = "txtDepart";
             this.txtDepart.Size = new System.Drawing.Size(148, 23);
             this.txtDepart.TabIndex = 5;
@@ -58,7 +58,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(283, 44);
+            this.label7.Location = new System.Drawing.Point(325, 44);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(33, 15);
             this.label7.TabIndex = 32;
@@ -67,7 +67,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(283, 15);
+            this.label6.Location = new System.Drawing.Point(325, 15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 15);
             this.label6.TabIndex = 33;
@@ -94,7 +94,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(283, 73);
+            this.label9.Location = new System.Drawing.Point(325, 73);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(39, 15);
             this.label9.TabIndex = 31;
@@ -102,7 +102,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(363, 41);
+            this.txtPrice.Location = new System.Drawing.Point(405, 41);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(121, 23);
             this.txtPrice.TabIndex = 6;
@@ -116,7 +116,7 @@
             "Departed",
             "Completed",
             "Canceled"});
-            this.cbStatus.Location = new System.Drawing.Point(363, 70);
+            this.cbStatus.Location = new System.Drawing.Point(405, 70);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(121, 23);
             this.cbStatus.TabIndex = 7;
@@ -170,18 +170,20 @@
             // 
             // txtFrom
             // 
+            this.txtFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtFrom.FormattingEnabled = true;
             this.txtFrom.Location = new System.Drawing.Point(125, 41);
             this.txtFrom.Name = "txtFrom";
-            this.txtFrom.Size = new System.Drawing.Size(121, 23);
+            this.txtFrom.Size = new System.Drawing.Size(165, 23);
             this.txtFrom.TabIndex = 2;
             // 
             // txtTo
             // 
+            this.txtTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtTo.FormattingEnabled = true;
             this.txtTo.Location = new System.Drawing.Point(125, 70);
             this.txtTo.Name = "txtTo";
-            this.txtTo.Size = new System.Drawing.Size(121, 23);
+            this.txtTo.Size = new System.Drawing.Size(165, 23);
             this.txtTo.TabIndex = 3;
             // 
             // txtNumberPlate
@@ -198,7 +200,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(540, 182);
+            this.ClientSize = new System.Drawing.Size(587, 222);
             this.Controls.Add(this.txtTripId);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);

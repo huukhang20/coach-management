@@ -56,8 +56,8 @@ namespace CoachManagement
                         ClearText();
                     }
                 }
-            } 
-            catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -66,7 +66,7 @@ namespace CoachManagement
         {
             return list.Where(x => x.NumberPlate.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase)
                 && (!cbFilter.Text.Any() || cbFilter.Text.Equals(x.Brand)))
-                .OrderByDescending(d => d.Brand) ;
+                .OrderBy(d => d.Brand);
         }
         private void ClearText()
         {
