@@ -34,11 +34,13 @@ namespace CoachManagement
                 txtSeat.DataBindings.Clear();
                 txtBrand.DataBindings.Clear();
                 txtLocation.DataBindings.Clear();
+                cbStatus.DataBindings.Clear();
 
                 txtNumberPlate.DataBindings.Add("Text", list, "NumberPlate");
                 txtSeat.DataBindings.Add("Text", list, "Seats");
                 txtBrand.DataBindings.Add("Text", list, "Brand");
                 txtLocation.DataBindings.Add("Text", list, "Location");
+                cbStatus.DataBindings.Add("Checked", list, "Active");
 
                 dgvCoachs.DataSource = list;
                 dgvCoachs.Columns[5].Visible = false;
@@ -72,6 +74,7 @@ namespace CoachManagement
             txtSeat.Text = "";
             txtBrand.Text = "";
             txtLocation.Text = "";
+            cbStatus.Checked = false;
         }
         private Coach? GetSelected()
         {
@@ -80,7 +83,7 @@ namespace CoachManagement
                 return new Coach(
                     txtNumberPlate.Text,
                     int.Parse(txtSeat.Text),
-                    true,
+                    cbStatus.Checked,
                     txtBrand.Text,
                     txtLocation.Text
                 );

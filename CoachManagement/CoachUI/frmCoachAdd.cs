@@ -16,6 +16,7 @@ namespace CoachManagement.CoachUI
     public partial class frmCoachAdd : Form
     {
         private Coach? coach;
+
         private ICoachRepository coachRepository = new CoachRepository();
         public frmCoachAdd(Coach? coach)
         {
@@ -30,7 +31,7 @@ namespace CoachManagement.CoachUI
                 Coach coach = new Coach(
                     txtNumberPlate.Text,
                     int.Parse(txtSeat.Text),
-                    true,
+                    cbStatus.Checked,
                     txtBrand.Text,
                     txtLocation.Text
                 );
@@ -56,6 +57,7 @@ namespace CoachManagement.CoachUI
                 txtBrand.Text = coach.Brand;
                 txtLocation.Text = coach.Location;
                 txtNumberPlate.Enabled = false;
+                cbStatus.Checked = coach.Active;
             }
         }
     }

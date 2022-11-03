@@ -163,6 +163,7 @@
             this.btnReceipe.TabIndex = 11;
             this.btnReceipe.Text = "Receipe";
             this.btnReceipe.UseVisualStyleBackColor = true;
+            this.btnReceipe.Click += new System.EventHandler(this.btnReceipe_Click);
             // 
             // txtSearchTrip
             // 

@@ -38,12 +38,14 @@
             this.lbSeat = new System.Windows.Forms.Label();
             this.lbNumberPlate = new System.Windows.Forms.Label();
             this.txtLocation = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbStatus = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(277, 93);
+            this.btnCancel.Location = new System.Drawing.Point(278, 105);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 32;
@@ -53,7 +55,7 @@
             // btnSave
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Location = new System.Drawing.Point(147, 93);
+            this.btnSave.Location = new System.Drawing.Point(148, 105);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 33;
@@ -103,7 +105,7 @@
             // lbSeat
             // 
             this.lbSeat.AutoSize = true;
-            this.lbSeat.Location = new System.Drawing.Point(18, 49);
+            this.lbSeat.Location = new System.Drawing.Point(18, 44);
             this.lbSeat.Name = "lbSeat";
             this.lbSeat.Size = new System.Drawing.Size(29, 15);
             this.lbSeat.TabIndex = 30;
@@ -112,7 +114,7 @@
             // lbNumberPlate
             // 
             this.lbNumberPlate.AutoSize = true;
-            this.lbNumberPlate.Location = new System.Drawing.Point(18, 20);
+            this.lbNumberPlate.Location = new System.Drawing.Point(18, 15);
             this.lbNumberPlate.Name = "lbNumberPlate";
             this.lbNumberPlate.Size = new System.Drawing.Size(80, 15);
             this.lbNumberPlate.TabIndex = 31;
@@ -126,6 +128,26 @@
             this.txtLocation.Size = new System.Drawing.Size(150, 23);
             this.txtLocation.TabIndex = 26;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 75);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 15);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Status";
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.AutoCheck = false;
+            this.cbStatus.AutoSize = true;
+            this.cbStatus.Location = new System.Drawing.Point(104, 74);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(59, 19);
+            this.cbStatus.TabIndex = 34;
+            this.cbStatus.Text = "Active";
+            this.cbStatus.UseVisualStyleBackColor = true;
+            // 
             // frmCoachAdd
             // 
             this.AcceptButton = this.btnSave;
@@ -133,6 +155,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(506, 154);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.txtLocation);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -164,5 +188,7 @@
         private Label lbSeat;
         private Label lbNumberPlate;
         private ComboBox txtLocation;
+        private Label label1;
+        private CheckBox cbStatus;
     }
 }

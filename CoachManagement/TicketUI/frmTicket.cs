@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using CoachManagement.TicketUI;
 using DataAccess;
 using DataAccess.Repository;
 using System;
@@ -144,6 +145,21 @@ namespace CoachManagement
         private void btnSearch_Click(object sender, EventArgs e)
         {
             LoadList();
+        }
+
+        private void btnReceipe_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Ticket? ticket = GetSelected();
+                frmTickertDetail frmTicketDetail = new frmTickertDetail(ticket);
+                if (frmTicketDetail.ShowDialog() == DialogResult.OK)
+                    LoadList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         //private void dgvTickets_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

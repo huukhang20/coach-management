@@ -43,6 +43,8 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.txtLocation = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbStatus = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCoachs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,7 +153,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(406, 110);
+            this.btnDelete.Location = new System.Drawing.Point(400, 141);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 27;
@@ -161,7 +163,7 @@
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(269, 110);
+            this.btnNew.Location = new System.Drawing.Point(263, 141);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 26;
@@ -176,11 +178,33 @@
             this.txtLocation.Size = new System.Drawing.Size(121, 23);
             this.txtLocation.TabIndex = 28;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(61, 98);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 15);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Status";
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.AutoCheck = false;
+            this.cbStatus.AutoSize = true;
+            this.cbStatus.Location = new System.Drawing.Point(176, 97);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(59, 19);
+            this.cbStatus.TabIndex = 36;
+            this.cbStatus.Text = "Active";
+            this.cbStatus.UseVisualStyleBackColor = true;
+            // 
             // frmCoach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 442);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.txtLocation);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnNew);
@@ -221,5 +245,7 @@
         private Button btnDelete;
         private Button btnNew;
         private TextBox txtLocation;
+        private Label label1;
+        private CheckBox cbStatus;
     }
 }
