@@ -44,6 +44,7 @@
             this.txtFrom = new System.Windows.Forms.ComboBox();
             this.txtTo = new System.Windows.Forms.ComboBox();
             this.txtNumberPlate = new System.Windows.Forms.ComboBox();
+            this.btnDepart = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtDepart
@@ -124,7 +125,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(283, 147);
+            this.btnCancel.Location = new System.Drawing.Point(336, 153);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 45;
@@ -134,7 +135,7 @@
             // btnSave
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Location = new System.Drawing.Point(144, 147);
+            this.btnSave.Location = new System.Drawing.Point(197, 153);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 46;
@@ -194,13 +195,25 @@
             this.txtNumberPlate.Size = new System.Drawing.Size(121, 23);
             this.txtNumberPlate.TabIndex = 4;
             // 
+            // btnDepart
+            // 
+            this.btnDepart.Location = new System.Drawing.Point(451, 102);
+            this.btnDepart.Name = "btnDepart";
+            this.btnDepart.Size = new System.Drawing.Size(75, 23);
+            this.btnDepart.TabIndex = 50;
+            this.btnDepart.Text = "Depart";
+            this.btnDepart.UseVisualStyleBackColor = true;
+            this.btnDepart.Visible = false;
+            this.btnDepart.Click += new System.EventHandler(this.btnDepart_Click);
+            // 
             // frmTripAdd
             // 
             this.AcceptButton = this.btnCancel;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(587, 222);
+            this.ClientSize = new System.Drawing.Size(587, 210);
+            this.Controls.Add(this.btnDepart);
             this.Controls.Add(this.txtTripId);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -243,5 +256,6 @@
         private ComboBox txtFrom;
         private ComboBox txtTo;
         private ComboBox txtNumberPlate;
+        private Button btnDepart;
     }
 }

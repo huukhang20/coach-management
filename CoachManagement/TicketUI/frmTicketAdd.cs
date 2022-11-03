@@ -41,12 +41,15 @@ namespace CoachManagement
                     txtDepart.Value = trip.DepartTime;
                     txtPrice.Text = trip.Price.ToString();
 
+                    // display seats
                     if (trip != null && trip.NumberPlateNavigation != null)
                     {
+                        // find all bought tickets of this trip
                         IEnumerable<int> boughtTickets = ticketRepository.GetAll()
                             .Where(t => t.TripId == trip.Id)
                             .Select(t => t.SeatNumber);
 
+                        // available tickets are the one not amoung bought tickets
                         for (int i = 1; i <= trip.NumberPlateNavigation.Seats; i++)
                             if (!boughtTickets.Contains(i))
                                 checkedListBoxSeats.Items.Add(i);

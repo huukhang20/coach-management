@@ -83,9 +83,12 @@ namespace CoachManagement.TripUI
                 {
                     case 0:
                         status = "NotDepart";
+                        btnDepart.Visible = true;
                         break;
                     case 1:
                         status = "Departed";
+                        btnDepart.Visible = true;
+                        btnDepart.Text = "Arrive";
                         break;
                     case 2:
                         status = "Completed";
@@ -94,6 +97,7 @@ namespace CoachManagement.TripUI
                         status = "Canceled";
                         break;
                 }
+
                 txtTripId.Text = trip.Id.ToString();
                 txtFrom.Text = trip.From;
                 txtTo.Text = trip.To;
@@ -101,6 +105,40 @@ namespace CoachManagement.TripUI
                 cbStatus.Text = status;
                 txtPrice.Text = trip.Price.ToString();
                 txtNumberPlate.Text = trip.NumberPlate;
+
+                if (string.IsNullOrEmpty(txtNumberPlate.Text))
+                    btnDepart.Visible = false;
+            }
+        }
+
+        private void btnDepart_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Trip trip = tripRepository.GetById(int.Parse(txtTripId.Text))!;
+                DialogResult res;
+                switch ((TripStatus)trip.Status)
+                {
+                    case TripStatus.NotDepart:
+                        res = MessageBox.Show("Start the trip?", "", MessageBoxButtons.OKCancel);
+                        if (res == DialogResult.Cancel) return;
+                        trip.Status = (int)TripStatus.Departed;
+                        trip.NumberPlateNavigation!.Location = trip.From;
+                        break;
+                    case TripStatus.Departed:
+                        res = MessageBox.Show("End the trip?", "", MessageBoxButtons.OKCancel);
+                        if (res == DialogResult.Cancel) return;
+                        trip.Status = (int)TripStatus.Completed;
+                        trip.NumberPlateNavigation!.Location = trip.To;
+                        break;
+                }
+                tripRepository.Update(trip);
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
