@@ -80,6 +80,7 @@ namespace CoachManagement
 
         private void btnHome_Click(object sender, EventArgs e)
         {
+            DisableButton();
             if (activeForm != null)
                 activeForm.Close();
             Reset();
@@ -133,6 +134,21 @@ namespace CoachManagement
         private void panelDesktopPane_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            Form childForm = new frmTicket(null);
+            ActivateButton(btnTicket);
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.panelDesktopPane.Controls.Add(childForm);
+            this.panelDesktopPane.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            lbTitle.Text = childForm.Text;
         }
     }
 }
