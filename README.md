@@ -21,4 +21,4 @@ For testing, copy `appsettings.json` to folder Test and check ItemGroup in `Test
 
 ## Original
 ```
-https://github.com/khanhdinh02/coach-management.git
+[I'm an inline-style link](https://github.com/khanhdinh02/coach-management.git)
