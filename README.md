@@ -18,3 +18,7 @@ Make sure `CoachManagement.csproj` has the following lines:
 </ItemGroup>
 ```
 For testing, copy `appsettings.json` to folder Test and check ItemGroup in `Test.csproj`
+
+## Original
+```
+https://github.com/khanhdinh02/coach-management.git
